@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from './component/core/Button';
 import Card from './component/Card';
 
+
 class App extends React.Component {
 
   constructor(props) {
@@ -43,10 +44,10 @@ class App extends React.Component {
             </div>
           </div>
         {/* check video caroline */}
-     
+
         <div class="text-center">
         <div className="row">
-         
+         <div className='col-12'>
         <Button 
           onClickFn={() => {
             this.setState({
@@ -76,10 +77,11 @@ class App extends React.Component {
               name: 'Crotia',
               capital: 'Zaghreb',
               region: 'Europe',
-              population: 41.90669,
+              population: 4190669,
             });
           }}>Croatia
         </Button >
+        </div>
         </div>
         </div>
         <div className="text-center">
