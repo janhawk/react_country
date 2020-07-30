@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from './component/core/Button';
+import Card from './component/Card';
 
 class App extends React.Component {
 
@@ -9,13 +10,13 @@ class App extends React.Component {
     this.state = {
       name: 'France',
       capital: 'Paris',
-      flag: 'https://restcountries.eu/data/fra.svg',
+      flag: "https://restcountries.eu/data/fra.svg",
       population: 66710000,
       region: 'Europe',
     };
     
   }
-  componentDidMount() {
+  onClickFn() {
     fetch("https://restcountries.eu/rest/v2/name/france")
     .then(res => res.json())
     .then(json => {
@@ -34,44 +35,62 @@ class App extends React.Component {
   render() {
     return(
       <div className='container-fluid'>
-        
-        <h1>
-          Country selector
-        </h1>
+          <div className="row">
+            <div class="col text-center">
+              <h1>
+                Country selector
+              </h1>
+            </div>
+          </div>
         {/* check video caroline */}
-        <Button
-
-        onClickFn={() => {
-          this.setState({
-            name: 'France'
-          });
-        }}>France
-
+     
+        <div class="text-center">
+        <div className="row">
+         
+        <Button 
+          onClickFn={() => {
+            this.setState({
+              flag: "https://restcountries.eu/data/fra.svg",
+              name: 'France',
+              capital: 'Paris',
+              region: 'Europe',
+              population: 66710000,
+            });
+          }}>France
         </Button>
         <Button 
-        onClickFn={() => {
-          this.setState({
-            name: 'Brazil'
-          });
-        }}>Brazil
-
+          onClickFn={() => {
+            this.setState({
+              flag: "https://restcountries.eu/data/bra.svg",
+              name: 'Brazil',
+              capital: 'Brasilia',
+              region: 'Americas',
+              population: 206135893,
+            });
+          }}>Brazil
         </Button>
         <Button 
-        onClickFn={() => {
-          this.setState({
-            name: 'Crotia'
-            
-          });
-        }}>Croatia
-
-        </Button>
-        
-        
-        {this.state.name}
-        {this.state.capital}
-        {this.state.flag}
-        {this.state.population}
-        {this.state.region}
+          onClickFn={() => {
+            this.setState({
+              flag: "https://restcountries.eu/data/hrv.svg",
+              name: 'Crotia',
+              capital: 'Zaghreb',
+              region: 'Europe',
+              population: 41.90669,
+            });
+          }}>Croatia
+        </Button >
+        </div>
+        </div>
+        <div className="text-center">
+        <Card 
+          name={this.state.name}
+          capital={this.state.capital}
+          flag={this.state.flag}
+          population={this.state.population}
+          region={this.state.region}>
+        </Card>
+        </div>
       </div>
     );
   }
